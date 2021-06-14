@@ -8,7 +8,10 @@ class Employee:
         self.last = last
         self.pay = pay
         self.email = first + '.' + last + '@company.com'
-    pass
+    
+    def fullname(self):
+        return '{} {}'.format(self.first,self.last)
+
 
 # Each of these will be their own unique instances of the employee class
 emp1 = Employee('ife', 'oye', '$50,000')
@@ -17,5 +20,4 @@ emp2 = Employee('efi', 'eyo', '$80,000')
 # print(emp1)
 # print(emp2)
 
-print(emp1.email)
-print(emp2.email)
+print(emp1.fullname()) 
