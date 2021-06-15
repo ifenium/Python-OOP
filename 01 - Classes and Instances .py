@@ -3,7 +3,7 @@
 # the employee class would be an instance of that class.  
 
 class Employee:
-    
+
     def __init__(self, first, last, pay):
         self.first = first
         self.last = last
@@ -17,8 +17,8 @@ class Employee:
 
 
 # Each of these will be their own unique instances of the employee class
-emp1 = Employee('ife', 'oye', '$50,000')
-emp2 = Employee('efi', 'eyo', '$80,000') 
+emp1 = Employee('ife', 'oye', 50000)
+emp2 = Employee('efi', 'eyo', 80000) 
 
 # print(emp1)
 # print(emp2)
@@ -27,6 +27,10 @@ emp2 = Employee('efi', 'eyo', '$80,000')
 # and not an attribute(instance variable defined in a class)
 print(emp2.fullname())   
 
-# The two lines of code below do the same thing but  
-emp2.fullname() # this calls the method `fullname()` on the instance `emp2`, passing `self` isn't needed 
-Employee.fullname(emp1)# this calls the method `fullname()` on the class `Employee` while passing the instance `emp1`
+# The two lines of code below do the same thing but,
+
+# this calls the method `fullname()` on the instance `emp2`, passing `self` isn't needed 
+emp2.fullname() 
+
+# this calls the method `fullname()` on the class `Employee` while passing the instance `emp1`
+Employee.fullname(emp1)
