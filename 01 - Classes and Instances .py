@@ -3,12 +3,15 @@
 # the employee class would be an instance of that class.  
 
 class Employee:
+    
     def __init__(self, first, last, pay):
         self.first = first
         self.last = last
         self.pay = pay
         self.email = first + '.' + last + '@company.com'
     
+    # Each method within a class  automatically takes 
+    # the instance as the first argument which is always called self 
     def fullname(self):
         return '{} {}'.format(self.first,self.last)
 
@@ -20,4 +23,10 @@ emp2 = Employee('efi', 'eyo', '$80,000')
 # print(emp1)
 # print(emp2)
 
-print(emp1.fullname()) 
+# The paranthesis are needed below because this is a method(function defined in a class) 
+# and not an attribute(instance variable defined in a class)
+print(emp2.fullname())   
+
+# The two lines of code below do the same thing but  
+emp2.fullname() # this calls the method `fullname()` on the instance `emp2`, passing `self` isn't needed 
+Employee.fullname(emp1)# this calls the method `fullname()` on the class `Employee` while passing the instance `emp1`
