@@ -54,8 +54,11 @@ print(new_emp_1.email)
 print(new_emp_1.pay)
 
 # REM: When working with classes regular methods automatically pass the instance as 
-# the first argument which we call `self`, while class methods automatically pass the class as 
+# the first argument which we call `self`, while class methods automatically pass the class as his
 # the first argument which we call `cls`. Static Methods don't pass anything automatically (
 # instance or class)
 
- 
+import datetime
+my_date = datetime.date(2021, 6, 16)
+
+print(Employee.is_workday(my_date))
