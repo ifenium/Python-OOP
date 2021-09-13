@@ -19,6 +19,7 @@ hi_func()
 bye_func( )
 '''
  
+ g
 def decorator_function(original_function):
 	def wrapper_function(*args, **kwargs):
 		print('wrapper executed this before {}'.format(original_function.__name__))
@@ -32,7 +33,7 @@ def display():
 
 '''
 @decorator_function 
-def display():
+def display(): 
 	print('display function ran')
 
 display()
@@ -42,12 +43,14 @@ display = decorator_function(display)
 decorated_display()
 '''
 
+'''
 @decorator_function
 def display_info(name, age):
 	print('display info ran with arguments ({}, {})'.format(name, age))
 
 display_info('Ife',21)
 display()
+'''
 
 '''
 Class Decorators 
@@ -82,3 +85,12 @@ def my_timer(orig_func):
 		t2 = time.time() - t1
 		print('{} ran in: {} sec'.format(orig_func.__name__, t2))
 		
+import time		
+ 
+@my_timer
+def display_info(name, age):
+	time.sleep(2)
+	print('display info ran with arguments ({}, {})'.format(name, age))
+
+
+display_info('ifenium', 21)
