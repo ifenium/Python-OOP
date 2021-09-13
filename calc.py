@@ -15,4 +15,4 @@ def divide(x,y):
     """Divide Function"""
     if y == 0:
         raise ValueError('Can not divide bt Zero!')
-    return x * y 
+    return x / y 
