@@ -64,11 +64,13 @@ class decorator_class(object):
 		return self. original_function(*args, **kwargs) 
 '''
 
+from functools import wraps
 
 def my_logger(orig_func):
 	import logging
 	logging.basicConfig(filename='{}.log'.format(orig_func.__name__), level=logging.INFO)
 
+	@wraps(orig_func)
 	def wrapper(*args, **kwargs):
 		logging.info(
 			'Ran with args: {}, and kwargs: {}'.format(args,kwargs))
@@ -79,6 +81,7 @@ def my_logger(orig_func):
 def my_timer(orig_func):
 	import time 
 
+	@wraps(orig_func)
 	def wrapper (*args, **kwargs):
 		t1 = time.time()
 		result = orig_func(*args, **kwargs)
@@ -90,11 +93,12 @@ def my_timer(orig_func):
 
 
 import time		
- 
+
 @my_timer
+@my_logger
 def display_info(name, age):
 	time.sleep(1)
 	print('display info ran with arguments ({}, {})'.format(name, age))
 
 
-display_info('ife', 21)
+display_info('ife', 41)
